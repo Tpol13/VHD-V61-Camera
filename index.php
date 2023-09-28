@@ -40,7 +40,7 @@ require_once("config/autoload.php");
         <img src="icons/gplv3-with-text-136x68.png" alt="Debian Logo" class="floating_element"/>
         <span class="floating_element">
 Tools to manage Motion<br>
- video streams
+ video streams 
         </span>
       </div>
       <div class="table_of_contents floating_element">
@@ -84,7 +84,7 @@ Tools to manage Motion<br>
 	<div id="div_h1" style="display: none">
 		<p>Ce projet vous est proposé pour gérer les intrusions détectées par une caméra IP<p>
 		<p>Il est destiné à ceux qui ne souhaitent pas utiliser le software livré avec leur caméra ou dont celui-ci est obsolette
-comme c'est le cas pour la mienne où FlashPlayer est employé</p>
+comme c'est le cas pour la mienne ( VHD-V61 ) où FlashPlayer est employé</p>
 	</div><!-- div div_h1 -->
 
 	<h2 onclick="toggleStyle('div_h2.1')">Sources des vidéos</h2>
@@ -155,7 +155,7 @@ comme c'est le cas pour la mienne où FlashPlayer est employé</p>
 	</div><!-- div div_h1 -->
 	<div id="div_h1" style="display: none">
 		<p>This project is offered to you for managing intrusions detected by an IP camera.</p>
-		<p>It is intended for those who do not wish to use the software provided with their camera or whose software is obsolete, as is the case with mine where FlashPlayer is used.</p>
+		<p>It is intended for those who do not wish to use the software provided with their camera or whose software is obsolete, as is the case with mine ( VHD-V61 ) where FlashPlayer is used.</p>
 	</div><!-- div div_h1 -->
 
 <h2 onclick="toggleStyle('div_h2.1')">Video Sources</h2>

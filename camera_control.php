@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<title>IP Camera Configure</title>
+			<title>IP Camera Configure for VHD-V61</title>
 		</head>
 		<frameset cols="0,200,*" frameborder="no" border="0" framespacing="0">
 				  <frame name="retframe" src="/camfull/blank.html" scrolling=auto marginheight=0 marginwidth=0 noResize>

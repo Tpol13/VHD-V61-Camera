@@ -23,19 +23,16 @@ ENGLISH VERSION:
 
 * Management of Video Sequences Captured by an IP Camera
 
-   click on the title to view the details...
 
    This project is offered to you for managing intrusions detected by an
    IP camera.
 
    It is intended for those who do not wish to use the software provided
    with their camera or whose software is obsolete, as is the case with
-   mine where FlashPlayer is used.
+   mine ( VHD-V61 ) where FlashPlayer is used.
 
 
 * Video Sources
-
-   click on the title to view the details...
 
    The sequences are captured by Motion v4.3.2.
      * They are processed by the detect.sh script and video2image.php,
@@ -59,8 +56,6 @@ ENGLISH VERSION:
 
 
 * Wrapper, Middleware
-
-   click on the title to view the details...
 
    My camera is compatible with the ONVIF PTZ Control service, but its
    interface is obsolete; it only works with FlashPlayer. Therefore, I
@@ -109,18 +104,16 @@ FRENCH VERSION:
 
 * Gestion des séquences vidéos capturées par une camera
 
-   cliquez sur le titre pour afficher le détail...
+   For Camera VHD-V61
 
    Ce projet vous est proposé pour gérer les intrusions détectées par une
    caméra IP
 
    Il est destiné à ceux qui ne souhaitent pas utiliser le software livré
    avec leur caméra ou dont celui-ci est obsolette comme c'est le cas pour
-   la mienne où FlashPlayer est employé
+   la mienne ( VHD-V61 ) où FlashPlayer est employé
 
 * Sources des vidéos
-
-   cliquez sur le titre pour afficher le détail...
 
    Les séquences sont capturées par Motion v4.3.2
 
@@ -145,8 +138,6 @@ FRENCH VERSION:
      la première image servant d'imagette (thumb)
 
 * Warpper, middleware
-
-   cliquez sur le titre pour afficher le détail...
 
    Ma caméra est compatible ONVIF PTZ Control service, mais son interface
    est obsolette, elle ne fonctionne qu'avec FlashPlayer, j'ai donc ajouté
