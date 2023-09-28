@@ -1,0 +1,121 @@
+server {
+
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name monsupersite.fr;
+
+    root /var/www/html/;
+    index index.php index.html index.htm;
+
+	# pass PHP scripts to FastCGI server
+	#
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+	
+		# With php-fpm (or other unix sockets):
+		fastcgi_pass unix:/etc/alternatives/php-fpm.sock;
+		# With php-cgi (or other tcp sockets):
+		#fastcgi_pass 127.0.0.1:9000;
+	}
+
+
+    location / {
+        add_header Access-Control-Allow-Origin *;
+        root /var/www/html/;
+    }
+
+    # Les urls contennant /. (dotfiles)
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+
+
+####################
+### Partie PROXY ###
+####################
+
+# IP=192.168.3.88 is camera flashplayer
+# is the camera that has become unusable
+# This proxy allows you to continue using it with some adaptations.
+# see the camera_control.php scripts
+
+    location /cgi-bin {
+        include proxy_params;
+        proxy_pass http://192.168.3.88;
+    }
+	# redirect to camera language folder
+    location /english/ { include proxy_params; proxy_pass http://192.168.3.88; }
+
+	# redirect to camera folder
+    location ~ "^/fullcam/(.*)$" {
+        include proxy_params;
+  		proxy_redirect     http://192.168.3.88/fullcam/ /;
+        proxy_pass http://192.168.3.88/$1;
+    }
+	# redirect to camera folder, this to have full access to my camera from my VPN
+	location  /camfull {
+		rewrite /camfull/(.*) /$1  break;
+		proxy_pass         http://192.168.3.88/;
+		proxy_redirect     http://192.168.3.88/camfull/ /;
+		proxy_set_header   Host $host;
+}
+
+
+    # On va placer les logs dans un dossier accessible
+    #error_log /home/dev/logs/error.log; 
+    #access_log /home/dev/logs/acess.log; 
+
+    # Les pages d'erreurs
+    error_page 404 500 501 /error.html;
+
+}
+
+server {
+	# We redirect the www. to the version without www
+    # On redirige les www. vers la version sans www
+    listen 80;
+    server_name www.monsupersite.fr;
+    return 301 http://monsupersite.fr$request_uri;
+}
+
+
+##########################
+### RTMP / HLS SECTION ###
+##########################
+# Partie vidéo stats
+
+server {
+    listen 8083;
+    server_name  localhost;
+
+    # rtmp stat
+    location /stat {
+        rtmp_stat all;
+        rtmp_stat_stylesheet stat.xsl;
+    }
+    location /stat.xsl {
+        root /var/www/html/rtmp;
+    }
+
+    # rtmp control
+    location /control {
+        rtmp_control all;
+    }
+}
+
+server {
+    listen 8088;
+
+    location / {
+        add_header Access-Control-Allow-Origin *;
+        root /var/www/html/stream;
+    }
+}
+
+# Pour serveur rtmp
+types {
+    application/dash+xml mpd;
+}

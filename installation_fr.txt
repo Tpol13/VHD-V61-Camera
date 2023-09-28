@@ -1,0 +1,62 @@
+
+
+Bonjour
+
+	Ma webcam n'a pas de VPN et ne voulant pas l'ajouter à la DMZ, j'ai opté pour la coupler avec un RaspBerry 2B afin
+	qu'elle soit accessible depuis internet via openVPN.
+	Avec cette méhtod elle est totalement invisible du VPN, seul le RaspBerry se charge de router
+	les paquets tcp/ip vers elle. Le tout avec le tunnel vpn masqué (MASQUERADE)
+
+
+Voici quelques fichiers contenant les procédures utilisées afin de rendre ma webcam totalement transparente
+du monde exterrieur et continuer à m'en servir malgré la fin du support de FlashPlayer et son firmeware qui
+date et n'est plus mis à jour....
+
+
+
+Installation API FFMPEG FoR PhP !
+	Tutoriel : https://github.com/char0n/ffmpeg-php
+	Procédure : docs/ffmpeg.install
+
+
+Installation Motion
+	config partial : docs/motion/motion.conf
+		Seules les options essentiel ajouté ou modifiées se trouvent dans le fichier ci-dessus.
+
+	full config : docs/motion/motion-full.conf
+		Fichier de configuration complet. Il faut juste changer la variable "netcam_userpass user:password"...
+
+
+Installation HTTPD with Nginx
+	Example de configuration pour HLS, Motion et les redirections vers votre webcam (PROXY).
+
+		server RTMP/RTSP : docs/nginx/nginx.conf
+		site : docs/nginx/site-available/camera_without_flv
+
+		<!> Pensez à programmer votre webcam pour qu'elle envoie son flux à votre serveur NGINX via rtmp:// !!!
+
+
+Gestion à l'aide d'un VPN local, NAT et FW.
+	Pour la rendre accessible depuis mon VPN, j'ai ajouté des rêgles IPTABLES. Lequelles se trouvent :
+		docs/Firewall.txt
+
+
+
+Paquets utilisé avec Php 7.4 :
+
+	Debian/Ubuntu
+		aptitude -y install php-intl 
+	Suse:
+		zypper install php-intl
+	Redhat:
+		yum install php-intl
+	Gentoo:
+		emerge php-intl
+
+	Suse, Redhat et Gentoo:
+		pecl install intl
+
+	<!> Si module non chargé depuis php/*/*/conf.d/ alors appliquer :
+		sed -i "s/^.*;.*extension.*=.*intl.*/extension=intl/g" /etc/php/*/*/php.ini
+
+

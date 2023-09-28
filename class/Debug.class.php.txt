@@ -1,0 +1,69 @@
+Déclaration
+    my $log = jm_debug();
+    my $log = jm_debug( level => ":digit:", prefix => "Text précédent le
+    message de &log" );
+    my $log = jm_debug( %opt );
+    Options sous formes de HASH comme suit, %opt peut contenir :
+         level          => 0 à 99
+         log_file       => "/tmp/file.log"
+         prefix         => "-->"
+
+    level
+        Indique le niveau d'affichage de &log(lvl, "message...);. Si level
+        est supperrieur ou égal à $lvl, le message est affiché sur STDOUT.
+
+    log_file
+        Si cette option est présente, le résultat de l'emploi de
+        $log->log(...) ira dans le fichier mentioné par "log_file"
+
+    prefix
+        Le contenu de "prefix" sera affiché tout le temps au début de la
+        ligne qui contiendra les messages divers de $log->log(...) ou
+        $log->verbose(...)
+
+    endline
+        Détermine quel suite de caractère termine chaque &verbose(lvl, "..."
+        + endline);
+
+Options
+    Change le comportement de l'instance $log pendant son existance.
+
+    $log->level( lvl );
+        Change le niveau des messages à traités.
+
+    $log->prefix(" msg ... ");
+        ajouter ou changer le message qui précède l'affichage de texte de
+        debuggage, peut-être des tabulation, indentations....
+
+    $log = jm_debug(%opt);
+
+Utilisation
+    Effectuer une sortie sur STDOUT ou un fichier dont $log->log_file()
+    renvoie son nom.
+
+        &verbose(debug_level, format, ...)
+                    Renvoie sur STDOUT, l'entrée standard...
+
+        &log( format, ...)
+                    Enregistre "format"  dans le fichier ciblé par l'option "prefix"
+
+        format
+            voir man 3 printf
+
+    EXEMPLE simple
+        $log->verbose(99, "message texte...");
+
+        $log->log("teste de debuggage");
+
+    EXEMPLE avec options
+        Si $log->prefix(" msg n°%03d : ");
+
+        $nb = 1;
+
+        $log->verbose(99, "message texte avec option '%s'...", $nb++);
+
+        $log->log("teste de debuggage", $nb++);
+
+        $log->log(" second message test avec un %s", $nb++, "comptage");
+
+

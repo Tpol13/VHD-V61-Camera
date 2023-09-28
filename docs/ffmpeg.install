@@ -1,0 +1,66 @@
+tuto for :
+
+* Français
+* English
+
+################
+### Français ###
+################
+Procédure d'installation :
+
+# cd PROJECT/libs
+
+cd libs/
+
+wget https://github.com/char0n/ffmpeg-php/archive/refs/heads/master.zip
+
+mv master.zip ffmpegPHP_3.2.2.zip
+
+unzip ffmpegPHP_3.2.2.zip
+
+cd ffmpeg-php-master
+
+lynx -force_html https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer --source | sudo -u www-data -g www-data php
+     OU
+ wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | sudo -u www-data -g www-data php
+
+<!> Ceci créé : composer.phar :
+
+apt-get -y install php-gd   || php7.3-gd
+
+sudo -u www-data -g www-data php composer.phar install
+* si ca coince : composer config --global use-parent-dir true
+** si déjà tenté d'installé....
+Yes à tout...
+
+###############
+### ENGLISH ###
+###############
+Installation procedure :
+
+# cd PROJECT/libs
+
+cd libs/
+
+wget https://github.com/char0n/ffmpeg-php/archive/refs/heads/master.zip
+
+mv master.zip ffmpegPHP_3.2.2.zip
+
+unzip ffmpegPHP_3.2.2.zip
+
+cd ffmpeg-php-master
+
+lynx https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer --source | sudo -u www-data -g www-data php
+     OR
+wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | sudo -u www-data -g www-data php
+
+<!> This creates: composer.phar:
+
+ 
+
+apt-get -y install php-gd || php7.3-gd
+
+sudo -u www-data -g www-data php composer.phar install
+* if it gets stuck: composer config --global use-parent-dir true
+**if already tried to install....
+Yes to everything...

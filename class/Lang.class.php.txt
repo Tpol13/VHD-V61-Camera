@@ -1,0 +1,25 @@
+
+
+
+	$Lang	= new Lang( $array );
+
+	$array	= [
+					"list"	=> [
+
+					"charset"	=> type d'encodage : UTF-8,  ISO-5589-15 ....
+					"directory"	=> Dossier contennant les locales
+					"domain"	=> Nom de l'application (.mo)
+			 				],
+
+				"mycfg"		=> new myCFG(), contient une instance avec la configuration par défaut que doit adopter Lang()
+				"lang"		=> xx_XX   $primaryLang_subLang ex: "fr_CA" or "fr", "en_GB" or "en", ...
+	];
+
+	<!>	"lang" peut prendre deux types de format "xx_XX" ou "xx". Si "xx_XX" est choisie le charset détecté ou par défaut est ajouté.
+		Il est donc concidéré que l'architecture locale est au format gettext()
+
+
+
+En l'absence du fichier de langue détecté, echerche plusieurs fichier en combinant
+le primaryLang, subLang et charset.
+

@@ -1,0 +1,11 @@
+iptables -t nat -A POSTROUTING -o tun+ -j MASQUERADE
+
+iptables -I FORWARD -i tun+ -p TCP --dport rtsp -j ACCEPT
+iptables -t nat -I PREROUTING -j DNAT -i tun+ -p TCP --dport rtsp --to-destination 192.168.3.88
+iptables -I FORWARD -i tun+ -p TCP --dport 81 -j ACCEPT
+iptables -t nat -I PREROUTING -j DNAT -i tun+ -p TCP --dport 81 --to-destination 192.168.3.88
+iptables -I FORWARD -i tun+ -p UDP --dport rtsp -j ACCEPT
+iptables -t nat -I PREROUTING -j DNAT -i tun+ -p UDP --dport rtsp --to-destination 192.168.3.88
+iptables -I FORWARD -i tun+ -p UDP --dport 81 -j ACCEPT
+iptables -t nat -I PREROUTING -j DNAT -i tun+ -p UDP --dport 81 --to-destination 192.168.3.88
+

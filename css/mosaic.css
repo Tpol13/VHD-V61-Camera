@@ -1,0 +1,212 @@
+
+testdiv {
+		position: relative;
+		border-style: double;
+		border-width: 9px;
+		border-radius: 5px;
+		border-color:	SlateBlue;
+		margin-top: 00px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 0px;
+		padding-top: 00px;
+		padding-right: 00px;
+		padding-bottom: 00px;
+		padding-left: 00px;
+		top: 00px;
+		right: 0px;
+		bottom: 0px;
+		left: 00px;
+		color: tomato;
+}
+
+
+/* class */
+.surveillance {
+		background:		white;
+		border-style:	double;
+		border-width:	9px;
+		border-radius:	5px;
+		border-color:	Orange;
+		text-align:		center;
+		color:			black;
+}
+
+/*.surveillance_trash, .surveillance {*/
+.surveillance_trash {
+		/* @extend .surveillance; */
+		/*
+		background:		green;
+		 */
+		border-style:	solid;
+		border-width:	9px;
+		border-radius:	5px;
+		border-color:	Red;
+}
+
+.surveillance_trash  * > #mosaic {
+		background-image: url('../trash.png');
+		background-repeat: repeat;
+		opacity:		0.60;
+}
+
+.surveillance_trash * > .videomp4 {
+		background: white;
+}
+
+.play {
+		border: 3px solid;
+		border-color: Stateblue;
+		text-align:	center;
+}
+
+.mosaic {
+		z-index: 1;
+		position: relative;
+		top: 00px;
+		/* left doit être : .surveillance_trash:left -  la taille du border de .mosaic !! */
+		left: -6px;
+		border: 3px solid;
+		border-color:	red;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+
+}
+
+#canvas2 {
+		z-index: 3;
+		position: relative;
+}
+
+
+div.videomp4 {
+		z-index: 10;
+		position: relative;
+		display: inline-block;
+		border-style: dotted;
+		border-width: 8px;
+		border-color:	orange;
+
+		margin-top: 10px;
+		margin-bottom: 00px;
+		margin-left: 05px;
+		margin-right: 0px;
+		/*
+		margin:	20px;
+		top: 10px;
+		bottom: 10px;
+		left: 10px;
+		right: 10px;
+		 */
+		color: yellow;
+
+}
+p.videomp4 {
+		color: MediumSeaGreen;
+}
+
+div#play {
+		border-style: dotted;
+		border-width: 1px;
+		border-color:	orange;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+}
+
+.menu {
+		z-index: 100;
+		background: yellow;
+		//color: red;
+		color: linear-gradient(to right, blue, red);
+		font-family: Arial;
+		font-weight: bold;
+		transition: color 3s;
+		border-style: dotted;
+		border-width: 3px;
+		border-color:	red;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+}
+a.menu {
+		color: Brown;
+		text-decoration: none;
+		border-style: none;
+		border-width: none;
+		border-color:	none;
+}
+a.menu:before {
+		font-family: "Symbol";
+		content: " Þ ";
+}
+
+a.menu:after {
+		font-family: 'Symbol';
+		content: " Ü ";
+}
+
+a.menu:hover {
+		color: red;
+}
+a.menu:focus {
+		color: Green;
+}
+
+.menu_btn {
+		/*
+		width: 90%;
+		text-align: center;
+		border-style:	double;
+		 * */
+
+}
+div#menu {
+		margin: 10px;
+		padding: 10px;
+}
+
+div#menu_btn {
+		z-index: 99;
+		background:	silver;
+		border-style: dotted;
+		border-width: 9px;
+		border-color:	red;
+
+		padding:		07%;
+
+		position: fixed;
+		top: 30%;
+		left: 30%;
+		transform: translate(-30%, -30%);
+}
+
+
+/*  ID class */
+#motd {
+		border-style: dotted;
+		border-width: 3px;
+		border-color:	red;
+
+		padding: 20px;
+}
+
+#mosaicold {
+		top: 90px;
+		border-style: dotted;
+		border-width: 3px;
+		border-color: green;
+}
+
+#videomp4old {
+		top: 20px;
+		border-style: dotted;
+		border-width: 3px;
+		border-color:	red;
+}
+
+
+
